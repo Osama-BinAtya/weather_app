@@ -10,36 +10,27 @@ class Homepage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<Homepage> createState() =>
-      _HomepageState();
+  State<Homepage> createState() => _HomepageState();
 }
 
-class _HomepageState
-    extends State<Homepage> {
+class _HomepageState extends State<Homepage> {
   WeatherModel? weatherData;
+
   @override
   Widget build(BuildContext context) {
-    weatherData =
-        Provider.of<WeatherProvider>(
-                context)
-            .weatherData;
+    weatherData = Provider.of<WeatherProvider>(context).weatherData;
     return Scaffold(
+      backgroundColor: weatherData?.getThemeColor(),
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: weatherData?.getThemeColor(),
         title: const Text(
           'Weather App',
-          style: TextStyle(
-              color: Colors.white,
-              fontWeight:
-                  FontWeight.bold),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(
-                      builder:
-                          (context) {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
                 return SearchPage();
               }));
             },
@@ -52,13 +43,10 @@ class _HomepageState
       ),
       body: weatherData == null
           ? const Padding(
-              padding:
-                  EdgeInsets.symmetric(
-                      horizontal: 16),
+              padding: EdgeInsets.symmetric(horizontal: 16),
               child: Center(
                 child: Column(
-                  mainAxisSize:
-                      MainAxisSize.min,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       'there is no weather 😔 start',
@@ -77,24 +65,26 @@ class _HomepageState
               ),
             )
           : Container(
-              color: Colors.amberAccent,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                colors: [
+                  weatherData!.getThemeColor(),
+                  weatherData!.getThemeColor()[300]!,
+                  weatherData!.getThemeColor()[100]!
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )),
               child: Column(
-                mainAxisAlignment:
-                    MainAxisAlignment
-                        .center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Spacer(
                     flex: 3,
                   ),
                   Text(
-                    Provider.of<WeatherProvider>(
-                            context)
-                        .cityname!,
+                    Provider.of<WeatherProvider>(context).cityname!,
                     style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight:
-                            FontWeight
-                                .bold),
+                        fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     'Updated : ${weatherData!.date}',
@@ -106,37 +96,21 @@ class _HomepageState
                     flex: 1,
                   ),
                   Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment
-                            .spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Image.asset(weatherData!.getImage()),
-                      Text(
-                          weatherData!
-                              .avgtemp
-                              .toInt()
-                              .toString(),
+                      Text(weatherData!.avgtemp.toInt().toString(),
                           style: const TextStyle(
-                              fontSize:
-                                  32,
-                              fontWeight:
-                                  FontWeight
-                                      .bold)),
+                              fontSize: 32, fontWeight: FontWeight.bold)),
                       Column(
                         children: [
-                          Text(
-                              'maxTemp : ${weatherData!.maxtemp.toInt()}',
-                              style:
-                                  const TextStyle(
-                                fontSize:
-                                    15,
+                          Text('maxTemp : ${weatherData!.maxtemp.toInt()}',
+                              style: const TextStyle(
+                                fontSize: 15,
                               )),
-                          Text(
-                              'minTemp : ${weatherData!.mintemp}',
-                              style:
-                                  const TextStyle(
-                                fontSize:
-                                    15,
+                          Text('minTemp : ${weatherData!.mintemp}',
+                              style: const TextStyle(
+                                fontSize: 15,
                               )),
                         ],
                       ),
@@ -146,13 +120,9 @@ class _HomepageState
                     flex: 1,
                   ),
                   Text(
-                    weatherData!
-                        .condition,
+                    weatherData!.condition,
                     style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight:
-                            FontWeight
-                                .bold),
+                        fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   const Spacer(
                     flex: 5,
