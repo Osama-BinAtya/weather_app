@@ -1,16 +1,57 @@
-# weather_app
+# 🌤️ Weather App
 
-A new Flutter project.
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-%230077B5.svg?style=for-the-badge&logo=Dart&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 
-## Getting Started
+A modern, clean, and intuitive weather application built with **Flutter** and **Dart**. It provides real-time weather updates and forecasts for cities around the world through a smooth and responsive user interface.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## ✨ Features
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- 📍 **Location-Based Weather:** Automatically retrieves current weather using device GPS.
+- 🔍 **City Search:** Search for real-time weather conditions in any city worldwide.
+- 🌡️ **Detailed Metrics:** Displays temperature, humidity, wind speed, pressure, and cloudiness.
+- 📅 **Weather Forecast:** View hourly and daily forecasts.
+- 🎨 **Responsive UI:** Adaptive design optimized for both Android and iOS devices.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## 🛠️ Tech Stack & Dependencies
+
+* **Framework:** [Flutter](https://flutter.dev/)
+* **Language:** [Dart](https://dart.dev/)
+* **API Provider:** [OpenWeatherMap API](https://openweathermap.org/api)
+
+### 📦 Main Packages
+
+| Package | Purpose |
+| :--- | :--- |
+| [`geolocator`](https://pub.dev/packages/geolocator) | Fetches user device GPS coordinates |
+| [`http`](https://pub.dev/packages/http) | Handles HTTP API calls to OpenWeatherMap |
+| [`intl`](https://pub.dev/packages/intl) | Formats dates, time, and timestamps |
+
+---
+
+## 📸 Screenshots
+
+| Home Screen | Search Screen | Weather Details |
+| :---: | :---: | :---: |
+| *[Add Screenshot]* | *[Add Screenshot]* | *[Add Screenshot]* |
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up and run the project locally:
+
+### 1. Prerequisites
+Ensure you have the following installed:
+- [Flutter SDK](https://docs.flutter.dev/get-started/install)
+- VS Code or Android Studio
+
+### 2. Clone the Repository
+```bash
+git clone [https://github.com/Osama-BinAtya/weather_app.git](https://github.com/Osama-BinAtya/weather_app.git)
+cd weather_app
